@@ -11,12 +11,11 @@ public class Game {
 	private State currentState;
 	private int turnCount = 0;
 
-	public Game(IPlayer player1, IPlayer player2, IView view) {
+	public Game(IPlayer player1, IPlayer player2) {
 		players[0] = player1;
 		players[1] = player2;
 		for (IPlayer player : players) {
 			player.setGame(this);
-			player.setView(view);
 		}
 		currentState = GAME_START_STATE;
 		currentPlayer = players[RandomSingleton.RandomIntInRange(0,1)];
@@ -33,7 +32,7 @@ public class Game {
 		return players[index];
 	}
 	public IPlayer getNextPlayer(){
-		return (currentPlayer.equals(players[0])) ? players[1] : players[0];
+		return (currentPlayer.getId() == players[0].getId()) ? players[1] : players[0];
 	}
 
 	public State getCurrentState() {

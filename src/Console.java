@@ -20,7 +20,6 @@ public class Console implements IView {
 	@Override
 	public void displayMessage(String message) {
 		System.out.println(message);
-
 	}
 
 	@Override
@@ -38,6 +37,11 @@ public class Console implements IView {
 				displayMessage("That is an invalid input.");
 		}
 		return uChoice;
+	}
+
+	@Override
+	public String enterString() {
+		return input.nextLine();
 	}
 
 }

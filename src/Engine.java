@@ -32,13 +32,13 @@ public class Engine {
 				inMenu = false;
 				break;
 			case 1:
-				run(new Game(new Human(), new Human(), view));
+				run(new Game(new Human(view), new Human(view)));
 				break;
 			case 2:
-				run(new Game(new Human(), new Computer(), view));
+				run(new Game(new Human(view), new Computer()));
 				break;
 			case 3:
-				run(new Game(new Computer(), new Computer(), view));
+				run(new Game(new Computer(), new Computer()));
 				break;
 			}
 		}

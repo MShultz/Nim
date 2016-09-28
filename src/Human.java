@@ -6,9 +6,20 @@ import java.util.Scanner;
 public class Human implements IPlayer {
 	private static final int FIRST_ROW = 1;
 	private static final int FINAL_ROW = 3;
+    private static int playerCount = 0;
 	private String name;
 	private Game game;
 	private IView view;
+    private int id;
+
+    public Human(IView view)
+    {
+        ++playerCount;
+        this.view = view;
+        view.displayMessage("Enter player " + playerCount + " name.");
+        name = view.enterString();
+        id = playerCount;
+    }
 
 	@Override
 	public void setPlayerName(String name) {
@@ -25,7 +36,7 @@ public class Human implements IPlayer {
 		State currentState = game.getCurrentState();
 		view.displayState(currentState);
 
-		view.displayMessage("What row would you like to choose: ");
+		view.displayMessage(name + ", what row would you like to choose: ");
 		int rowIndex = view.chooseOption(FIRST_ROW, FINAL_ROW);
 
 		int rowValue = currentState.getRow(rowIndex-1);
@@ -56,4 +67,9 @@ public class Human implements IPlayer {
 	public void setView(IView view) {
 		this.view = view;
 	}
+
+    @Override
+    public int getId() {
+        return id;
+    }
 }

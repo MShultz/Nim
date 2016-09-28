@@ -22,4 +22,9 @@ public class Computer implements IPlayer {
 		// TODO Auto-generated method stub
 		
 	}
+
+    @Override
+    public int getId() {
+        return 0;
+    }
 }
