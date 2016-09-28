@@ -7,10 +7,14 @@ public class Game {
 	private IPlayer[] players = new IPlayer[2];
 	private IPlayer currentPlayer;
 	private State currentState;
+	private int turnCount = 0;
 
 	public Game(IPlayer player1, IPlayer player2) {
 		players[0] = player1;
 		players[1] = player2;
+		for (IPlayer player : players) {
+			player.setGame(this);
+		}
 		currentState = GAME_START_STATE;
 		currentPlayer = players[RandomSingleton.RandomIntInRange(0,1)];
 	}

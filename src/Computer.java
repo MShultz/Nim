@@ -3,6 +3,16 @@
  */
 public class Computer implements IPlayer {
     @Override
+    public void setPlayerName() {
+
+    }
+
+    @Override
+    public void setGame(Game game) {
+
+    }
+
+    @Override
     public void takeTurn() {
 
     }

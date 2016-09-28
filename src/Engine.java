@@ -12,7 +12,6 @@ public class Engine {
 
 	private Game game;
 	private IView view;
-	private int turnCount = 0;
 
 	public Engine(IView view){
 		this.view = view;
@@ -47,17 +46,14 @@ public class Engine {
 	}
 	public void run(Game game){
 		this.game = game;
-
 		gameLoop();
 	}
 	
 	public void gameLoop(){
-		for(boolean gameOver = false; !gameOver; gameOver = game.checkGameOver())
-		{
+		for(boolean gameOver = false; !gameOver; gameOver = game.checkGameOver()) {
 			IPlayer player = game.getNextPlayer();
 			player.takeTurn();
 		}
-
 	}
 	
 }
