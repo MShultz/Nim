@@ -39,4 +39,12 @@ public class Brain {
 		}
 		return possibles;
 	}
+	
+	public static void evaluateAverage(State[] gameHistory){
+		for(State current: gameHistory){
+			State history = possibleStates.get(current.getKey());
+			history.setAverage((current.getAverage()+history.getAverage())/2);
+		}
+	}
+
 }
