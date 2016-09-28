@@ -51,8 +51,7 @@ public class Engine {
 	
 	public void gameLoop(){
 		for(boolean gameOver = false; !gameOver; gameOver = game.checkGameOver()) {
-			IPlayer player = game.getNextPlayer();
-			player.takeTurn();
+			game.update();
 		}
 	}
 	

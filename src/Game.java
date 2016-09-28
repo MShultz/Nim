@@ -21,6 +21,11 @@ public class Game {
 		currentPlayer = players[RandomSingleton.RandomIntInRange(0,1)];
 	}
 
+	public void update()
+	{
+		currentPlayer = getNextPlayer();
+		currentPlayer.takeTurn();
+	}
 	public boolean checkGameOver() {
 		if (currentState.equals(GAME_OVER_STATE)) {
 			return true;
@@ -32,7 +37,7 @@ public class Game {
 		return players[index];
 	}
 	public IPlayer getNextPlayer(){
-		return (currentPlayer.getId() == players[0].getId()) ? players[1] : players[0];
+		return (currentPlayer.getId() != players[0].getId()) ? players[0] : players[1];
 	}
 
 	public State getCurrentState() {
