@@ -4,8 +4,6 @@ import java.util.Scanner;
  * Created by Greymoon on 9/28/2016.
  */
 public class Human implements IPlayer {
-	private static final int FIRST_ROW = 1;
-	private static final int FINAL_ROW = 3;
     private static int playerCount = 0;
 	private String name;
 	private Game game;
@@ -37,7 +35,7 @@ public class Human implements IPlayer {
 		view.displayState(currentState);
 
 		view.displayMessage(name + ", what row would you like to choose: ");
-		int rowIndex = view.chooseOption(FIRST_ROW, FINAL_ROW);
+		int rowIndex = view.chooseOption(game.FIRST_ROW, game.FINAL_ROW);
 
 		int rowValue = currentState.getRow(rowIndex-1);
 

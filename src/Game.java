@@ -4,6 +4,8 @@ public class Game {
 
 	private static final State GAME_START_STATE = new State(3, 5, 7);
 	private static final State GAME_OVER_STATE = new State(0, 0, 0);
+	public static final int FIRST_ROW = 1;
+	public static final int FINAL_ROW = 3;
 
 	private ArrayList<State> previousStates = new ArrayList<State>();
 	private IPlayer[] players = new IPlayer[2];

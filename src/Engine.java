@@ -35,10 +35,10 @@ public class Engine {
 				run(new Game(new Human(view), new Human(view)));
 				break;
 			case 2:
-				run(new Game(new Human(view), new Computer()));
+				run(new Game(new Human(view), new Computer(view)));
 				break;
 			case 3:
-				run(new Game(new Computer(), new Computer()));
+				run(new Game(new Computer(view), new Computer(view)));
 				break;
 			}
 		}
