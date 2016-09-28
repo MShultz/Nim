@@ -1,7 +1,7 @@
 
 public interface IView {
-	public void displayState(State currentState);
-	public void displayMessage(String message);
-	public int chooseOption(int lowerBound, int upperBound);
-	
+
+	void displayState(State state);
+	void displayMessage(String message);
+	int chooseOption(int lowerBoundInclusive, int upperBoundInclusive);
 }

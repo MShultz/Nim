@@ -1,5 +1,8 @@
 
 public interface IPlayer {
-	public String playerName = null;
-	public void takeTurn();
+	void setPlayerName();
+	void setGame(Game game);
+	void takeTurn();
+	@Override
+	String toString();
 }
