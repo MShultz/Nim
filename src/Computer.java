@@ -2,7 +2,7 @@
  * Created by Greymoon on 9/28/2016.
  */
 public class Computer implements IPlayer {
-    private static int computerCount = 0;
+    private static int computerCount = 100;
     private String name;
     private Game game;
     private IView view;
@@ -30,17 +30,14 @@ public class Computer implements IPlayer {
         State currentState = game.getCurrentState();
 
         State newState = null;
-        State[] possibleStates = new State[0];
-        for (State state : possibleStates) {
-            if (newState == null) {
-                newState = state;
-            }
-            else if (state.getAverage() > newState.getAverage()){
-                newState = state;
+        String[] possibleStates = Brain.getPossibleStates(currentState);
+        for (String stateKey : possibleStates) {
+            State possibleState = Brain.getState(stateKey);
+            if (newState == null || possibleState.getAverage() > newState.getAverage()){
+                newState = possibleState;
             }
         }
         game.setCurrentState(newState);
-
         view.displayMessage(name + " has set the game state to " + newState.getKey());
     }
 

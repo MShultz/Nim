@@ -39,4 +39,5 @@ public class Brain {
 		}
 		return possibles;
 	}
+	
 }

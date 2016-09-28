@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Game {
 
-	private static final State GAME_START_STATE = new State(3, 5, 7);
-	private static final State GAME_OVER_STATE = new State(0, 0, 0);
+	public static final State GAME_START_STATE = new State(3, 5, 7);
+	public static final State GAME_OVER_STATE = new State(0, 0, 0);
 	public static final int FIRST_ROW = 1;
 	public static final int FINAL_ROW = 3;
 
@@ -30,6 +30,7 @@ public class Game {
 	}
 	public boolean checkGameOver() {
 		if (currentState.equals(GAME_OVER_STATE)) {
+
 			return true;
 		}
 		return false;
