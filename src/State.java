@@ -23,4 +23,5 @@ public class State {
 	public void setAverage(double average){
 		this.average = average;
 	}
+	
 }

@@ -3,7 +3,7 @@
  */
 public class Computer implements IPlayer {
     @Override
-    public void setPlayerName() {
+    public void setPlayerName(String name) {
 
     }
 
@@ -16,4 +16,10 @@ public class Computer implements IPlayer {
     public void takeTurn() {
 
     }
+
+	@Override
+	public void setView(IView view) {
+		// TODO Auto-generated method stub
+		
+	}
 }
