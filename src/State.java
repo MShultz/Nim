@@ -3,6 +3,7 @@ public class State {
 	private String key;
 	private double average;
 	private int[] rows;
+	
 	public State() {
 		key = "-";
 		rows = new int[]{DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE};
@@ -13,9 +14,6 @@ public class State {
 		key = stackOne + "," + stackTwo + "," + stackThree;
 		rows = new int[]{stackOne, stackTwo, stackThree};
 		average = DEFAULT_VALUE;
-		rows[0] = stackOne;
-		rows[1] = stackTwo;
-		rows[2] = stackThree;
 	}
 
 	public String getKey() {
