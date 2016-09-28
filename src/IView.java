@@ -1,7 +1,7 @@
 
 public interface IView {
-	public void displayState();
-	public void displayMessage();
-	public void chooseOption();
+	void displayState();
+	void displayMessage();
+	void chooseOption();
 	
 }
