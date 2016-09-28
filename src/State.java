@@ -1,9 +1,9 @@
-
 public class State {
 	private static final int DEFAULT_VALUE = 0;
 	private String key;
 	private double average;
-
+    private int[] rows = new int[3];
+	
 	public State() {
 		key = "-";
 		average = DEFAULT_VALUE;
@@ -12,6 +12,9 @@ public class State {
 	public State(int stackOne, int stackTwo, int stackThree) {
 		key = stackOne + "," + stackTwo + "," + stackThree;
 		average = DEFAULT_VALUE;
+		rows[0] = stackOne;
+		rows[1] = stackTwo;
+		rows[2] = stackThree;
 	}
 
 	public String getKey() {
@@ -53,4 +56,10 @@ public class State {
 			return false;
 		return true;
 	}
+
+	public int getRow(int index) {
+		
+		return rows[index];
+	}
+
 }
