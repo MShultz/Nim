@@ -2,7 +2,7 @@
 public class Main {
 
 	public static void main(String[] args) {
-		TempViewClass view = new TempViewClass();
+		Console view = new Console();
 		Engine engine = new Engine(view);
 		engine.start();
 	}
