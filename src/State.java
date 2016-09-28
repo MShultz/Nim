@@ -3,14 +3,17 @@ public class State {
 	private static final int DEFAULT_VALUE = 0;
 	private String key;
 	private double average;
+	private int[] rows;
 
 	public State() {
 		key = "-";
+		rows = new int[]{DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE};
 		average = DEFAULT_VALUE;
 	}
 
 	public State(int stackOne, int stackTwo, int stackThree) {
 		key = stackOne + "," + stackTwo + "," + stackThree;
+		rows = new int[]{stackOne, stackTwo, stackThree};
 		average = DEFAULT_VALUE;
 	}
 
@@ -22,6 +25,12 @@ public class State {
 	}
 	public void setAverage(double average){
 		this.average = average;
+	}
+	public int getRow(int rowNum){
+		return rows[rowNum];
+	}
+	public int[] getRows(){
+		return rows;
 	}
 
 	@Override
