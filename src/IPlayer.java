@@ -6,7 +6,7 @@ public interface IPlayer {
 	void setView(IView view);
 	int getId();
 	void takeTurn();
-	
+	void lose();
 	@Override
 	String toString();
 }

@@ -37,8 +37,16 @@ public class Computer implements IPlayer {
                 newState = possibleState;
             }
         }
-        game.setCurrentState(newState);
-        view.displayMessage(name + " has set the game state to " + newState.getKey());
+        if (newState != null)
+        {
+            game.setCurrentState(newState);
+            view.displayMessage(name + " has set the game state to " + newState.getKey());
+        }
+    }
+
+    @Override
+    public void lose() {
+        view.displayMessage(name + " has lost the game.");
     }
 
     @Override

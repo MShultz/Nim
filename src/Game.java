@@ -29,8 +29,10 @@ public class Game {
 		currentPlayer.takeTurn();
 	}
 	public boolean checkGameOver() {
-		if (currentState.equals(GAME_OVER_STATE)) {
-
+		if (currentState.getKey().equals(GAME_OVER_STATE.getKey())) {
+			State[] states = new State[previousStates.size()];
+			Brain.assignGameAverages(previousStates.toArray(states));
+			currentPlayer.lose();
 			return true;
 		}
 		return false;

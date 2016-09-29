@@ -9,7 +9,7 @@ public class Engine {
 			"3.) Computer vs Computer\n" +
 			"0.) Exit";
 	private static final int NUMBER_OF_MAIN_MENU_OPTIONS = 4;
-
+	private static final int MAX_NUMBER_OF_GAMES = 1000;
 	private Game game;
 	private IView view;
 
@@ -38,7 +38,9 @@ public class Engine {
 				run(new Game(new Human(view), new Computer(view)));
 				break;
 			case 3:
-				run(new Game(new Computer(view), new Computer(view)));
+				view.displayMessage("How many games would you like to run?");
+				for (int i = view.chooseOption(0, MAX_NUMBER_OF_GAMES); i > 0; --i)
+					run(new Game(new Computer(view), new Computer(view)));
 				break;
 			}
 		}

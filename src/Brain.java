@@ -39,6 +39,31 @@ public class Brain {
 		}
 		return possibles;
 	}
+
+	public static void assignGameAverages(State[] states){
+		double numberOfStates = states.length;
+		double numberOfBadStates = (int) Math.ceil((double) numberOfStates / 2);
+		double numberOfGoodStates = ((numberOfStates % 2 == 0) ? numberOfBadStates : numberOfBadStates - 1);
+
+		int badStateCount = (int) numberOfBadStates;
+		for(int i = (int) numberOfStates - 1; i >= 0; i-=2)
+		{
+			states[i].setAverage(-badStateCount/numberOfBadStates);
+			--badStateCount;
+		}
+
+		int GoodStateCount = (int) numberOfGoodStates;
+		for(int i = (int) numberOfStates - 2; i >= 0; i-=2)
+		{
+
+			states[i].setAverage(GoodStateCount/numberOfGoodStates);
+			--GoodStateCount;
+		}
+		for (State state : states) {
+			System.out.println(state.getKey() + " Average: " + state.getAverage());
+		}
+		evaluateAverage(states);
+	}
 	
 	public static void evaluateAverage(State[] gameHistory){
 		for(State current: gameHistory){
