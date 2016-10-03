@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * Created by Greymoon on 9/28/2016.
  */
@@ -35,7 +33,7 @@ public class Human implements IPlayer {
 		view.displayState(currentState);
 
 		view.displayMessage(name + ", what row would you like to choose: ");
-		int rowIndex = view.chooseOption(game.FIRST_ROW, game.FINAL_ROW);
+		int rowIndex = view.chooseOption(Game.FIRST_ROW, Game.FINAL_ROW);
 
 		int rowValue = currentState.getRow(rowIndex-1);
 
