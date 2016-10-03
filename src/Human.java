@@ -31,34 +31,40 @@ public class Human implements IPlayer {
 	public void takeTurn() {
 		State currentState = game.getCurrentState();
 		view.displayState(currentState);
-
-		view.displayMessage(name + ", what row would you like to choose: ");
-		int rowIndex = view.chooseOption(Game.FIRST_ROW, Game.FINAL_ROW);
-
+		int rowIndex = getRow();
 		int rowValue = currentState.getRow(rowIndex-1);
-
-		view.displayMessage("How many do you want to take from row " + rowIndex + " ?");
-		int subtractValue = view.chooseOption(1, rowValue);
-
-		int newValue = rowValue - subtractValue;
-
-		State newState = null;
-		switch (rowIndex) {
-		case 1:
-			newState = new State(newValue, currentState.getRow(1), currentState.getRow(2));
-			break;
-		case 2:
-			newState = new State(currentState.getRow(0), newValue, currentState.getRow(2));
-			break;
-		case 3:
-			newState = new State(currentState.getRow(0), currentState.getRow(1), newValue);
-			break;
-		}
+		int subtractValue = getAmountFromRow(rowIndex, rowValue);
+		int newRowValue = rowValue - subtractValue;
+		State newState = generateNextState(currentState, rowIndex, newRowValue);
 
 		game.setCurrentState(newState);
-
 	}
 
+	private int getRow() {
+		view.displayMessage(name + ", what row would you like to choose: ");
+		return view.chooseOption(game.FIRST_ROW, game.FINAL_ROW);
+	}
+
+	private int getAmountFromRow(int rowIndex, int rowValue){
+		view.displayMessage("How many do you want to take from row " + rowIndex + " ?");
+		return view.chooseOption(1, rowValue);
+	}
+	private State generateNextState(State currentState, int rowIndex, int newRowValue) {
+		State newState = null;
+		switch (rowIndex) {
+			case 1:
+				newState = new State(newRowValue, currentState.getRow(1), currentState.getRow(2));
+				break;
+			case 2:
+				newState = new State(currentState.getRow(0), newRowValue, currentState.getRow(2));
+				break;
+			case 3:
+				newState = new State(currentState.getRow(0), currentState.getRow(1), newRowValue);
+				break;
+		}
+		return newState;
+	}
+	
 	@Override
 	public void lose() {
 		view.displayMessage(name + " has lost the game.");

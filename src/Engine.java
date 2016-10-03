@@ -45,6 +45,7 @@ public class Engine {
 		}
 		view.displayMessage("Thanks for playing.");
 	}
+
 	public void run(Game game){
 		this.game = game;
 		gameLoop();
