@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * Created by Greymoon on 9/28/2016.
  */
@@ -33,7 +31,6 @@ public class Human implements IPlayer {
 	public void takeTurn() {
 		State currentState = game.getCurrentState();
 		view.displayState(currentState);
-
 		int rowIndex = getRow();
 		int rowValue = currentState.getRow(rowIndex-1);
 		int subtractValue = getAmountFromRow(rowIndex, rowValue);
