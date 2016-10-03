@@ -11,7 +11,7 @@ public class Game {
 	private IPlayer[] players = new IPlayer[2];
 	private IPlayer currentPlayer;
 	private State currentState;
-	private int turnCount = 0;
+	//private int turnCount = 0;
 
 	public Game(IPlayer player1, IPlayer player2) {
 		players[0] = player1;
