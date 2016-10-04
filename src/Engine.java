@@ -11,7 +11,7 @@ public class Engine {
 	private static final int MAX_NUMBER_OF_GAMES = 1000;
 	private Game game;
 	private IView view;
-	private Menu menu;
+	
 
 	public Engine(IView view){
 		this.view = view;
