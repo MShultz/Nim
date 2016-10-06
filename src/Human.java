@@ -30,7 +30,10 @@ public class Human implements IPlayer {
 	@Override
 	public void takeTurn() {
 		State currentState = game.getCurrentState();
-		view.displayState(currentState);
+		
+		view.displayMessage(currentState.toString());
+		
+		
 		int rowIndex = getRow();
 		int rowValue = currentState.getRow(rowIndex-1);
 		int subtractValue = getAmountFromRow(rowIndex, rowValue);

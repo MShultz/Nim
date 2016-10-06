@@ -1,5 +1,6 @@
 public class State {
 	private static final int DEFAULT_VALUE = 0;
+	private static final int STATE_SIZE = 3;
 	private String key;
 	private double average;
 	private int[] rows;
@@ -60,5 +61,20 @@ public class State {
 		} else if (!key.equals(other.key))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		String currentStack = "";
+		int[] stacks = getRows();
+		for (int i = 0; i < STATE_SIZE; ++i) {
+			currentStack += (i + 1) + " |";
+			for (int j = stacks[i]; j > 0; --j) {
+				currentStack += "X";
+			}
+			currentStack += "\n";
+		}
+		
+		return currentStack;
 	}
 }
