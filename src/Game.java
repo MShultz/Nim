@@ -19,14 +19,14 @@ public class Game {
 			player.setGame(this);
 		}
 		currentState = GAME_START_STATE;
-		currentPlayer = players[RandomSingleton.RandomIntInRange(0,1)];
+		currentPlayer = players[RandomSingleton.RandomIntInRange(0, 1)];
 	}
 
-	public void update()
-	{
+	public void update() {
 		currentPlayer = getNextPlayer();
 		currentPlayer.takeTurn();
 	}
+
 	public boolean checkGameOver() {
 		if (currentState.getKey().equals(GAME_OVER_STATE.getKey())) {
 			State[] states = new State[previousStates.size()];
@@ -40,7 +40,8 @@ public class Game {
 	public IPlayer getPlayer(int index) {
 		return players[index];
 	}
-	public IPlayer getNextPlayer(){
+
+	public IPlayer getNextPlayer() {
 		return (currentPlayer.getId() != players[0].getId()) ? players[0] : players[1];
 	}
 
@@ -49,7 +50,8 @@ public class Game {
 	}
 
 	public void setCurrentState(State currentState) {
-		if (currentState != null) previousStates.add(currentState);
+		if (currentState != null)
+			previousStates.add(currentState);
 		this.currentState = currentState;
 	}
 }
