@@ -2,13 +2,14 @@ import java.util.HashMap;
 
 public class Brain {
 	private static final int STARTING_ROW = 0;
+	private static final int MIDDLE_ROW = 1;
 	private static final int ENDING_ROW = 2;
 	static HashMap<String, State> possibleStates = new HashMap<String, State>();
 
-	public static void initialize(State gameStartState) {
-		for (int i = 0; i <= gameStartState.getRow(STARTING_ROW); ++i) {
-			for (int j = 0; j <= gameStartState.getRow(STARTING_ROW + 1); ++j) {
-				for (int k = 0; k <= gameStartState.getRow(ENDING_ROW); ++k) {
+	public static void initialize(int[] gameStartState) {
+		for (int i = 0; i <= gameStartState[STARTING_ROW]; ++i) {
+			for (int j = 0; j <= gameStartState[MIDDLE_ROW]; ++j) {
+				for (int k = 0; k <= gameStartState[ENDING_ROW]; ++k) {
 					possibleStates.put(i + "," + j + "," + k, new State(i, j, k));
 				}
 			}
@@ -19,9 +20,8 @@ public class Brain {
 		return possibleStates.get(key);
 	}
 
-	public static String[] getPossibleStates(State currentState){
+	public static String[] getPossibleStates(int[] rows){
 		int count = 0;
-		int[] rows = currentState.getRows();
 		int totalPossible = (rows[STARTING_ROW] + rows[STARTING_ROW +1] + rows[ENDING_ROW]);
 		String[] possibles = new String[totalPossible];
 		

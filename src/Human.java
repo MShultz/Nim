@@ -42,7 +42,7 @@ public class Human implements IPlayer {
 
 	private int getRow() {
 		view.displayMessage(name + ", what row would you like to choose: ");
-		return view.chooseOption(game.FIRST_ROW, game.FINAL_ROW);
+		return view.chooseOption(Game.FIRST_ROW, Game.FINAL_ROW);
 	}
 
 	private int getAmountFromRow(int rowIndex, int rowValue){
