@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * Created by Greymoon on 9/28/2016.
  */
@@ -32,8 +30,10 @@ public class Human implements IPlayer {
 	@Override
 	public void takeTurn() {
 		State currentState = game.getCurrentState();
-		view.displayState(currentState);
-
+		
+		view.displayMessage(currentState.toString());
+		
+		
 		int rowIndex = getRow();
 		int rowValue = currentState.getRow(rowIndex-1);
 		int subtractValue = getAmountFromRow(rowIndex, rowValue);
@@ -45,7 +45,7 @@ public class Human implements IPlayer {
 
 	private int getRow() {
 		view.displayMessage(name + ", what row would you like to choose: ");
-		return view.chooseOption(game.FIRST_ROW, game.FINAL_ROW);
+		return view.chooseOption(Game.FIRST_ROW, Game.FINAL_ROW);
 	}
 
 	private int getAmountFromRow(int rowIndex, int rowValue){
