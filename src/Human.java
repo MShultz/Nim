@@ -67,7 +67,7 @@ public class Human implements IPlayer {
 		}
 		return newState;
 	}
-	
+
 	@Override
 	public void lose() {
 		view.displayMessage(name + " has lost the game.");
