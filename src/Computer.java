@@ -29,15 +29,15 @@ public class Computer implements IPlayer {
     public void takeTurn() {
         State currentState = game.getCurrentState();
 
-        State newState = null;
+        State newState = new State();
         String[] possibleStates = Brain.getPossibleStates(currentState.getRows());
         for (String stateKey : possibleStates) {
             State possibleState = Brain.getState(stateKey);
-            if (newState == null || possibleState.getAverage() > newState.getAverage()){
+            if (possibleState.getAverage() > newState.getAverage()){
                 newState = possibleState;
             }
         }
-        if (newState != null)
+        if (!newState.equals(new State()))
         {
             game.setCurrentState(newState);
             view.displayMessage(name + " has set the game state to " + newState.getKey());
