@@ -1,5 +1,6 @@
 public class State {
-	private static final int DEFAULT_VALUE = 0;
+	private static final int DEFAULT_VALUE = -1;
+	private static final int DEFAULT_AVERAGE = 0;
 	private static final int STATE_SIZE = 3;
 	private String key;
 	private double average;
@@ -8,13 +9,13 @@ public class State {
 	public State() {
 		key = "-";
 		rows = new int[]{DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE};
-		average = DEFAULT_VALUE;
+		average = Double.MIN_VALUE;
 	}
 
 	public State(int stackOne, int stackTwo, int stackThree) {
 		key = stackOne + "," + stackTwo + "," + stackThree;
 		rows = new int[]{stackOne, stackTwo, stackThree};
-		average = DEFAULT_VALUE;
+		average = DEFAULT_AVERAGE;
 	}
 
 	public String getKey() {

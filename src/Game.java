@@ -50,7 +50,7 @@ public class Game {
 	}
 
 	public void setCurrentState(State currentState) {
-		if (currentState != null)
+		if (!currentState.equals(new State()))
 			previousStates.add(currentState);
 		this.currentState = currentState;
 	}
