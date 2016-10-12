@@ -14,7 +14,7 @@ public class Console implements IView {
 		while (!valid) {
 			displayMessage("Please input your choice.");
 			String userChoice = enterString();
-			if (userChoice.matches("[0-9]+")) {
+			if (containsDigit(userChoice)) {
 				uChoice = Integer.parseInt(userChoice);
 				valid = (uChoice >= lowerBound && uChoice <= upperBound);
 			}
@@ -23,10 +23,14 @@ public class Console implements IView {
 		}
 		return uChoice;
 	}
-
+	
 	@Override
 	public String enterString() {
 		return input.nextLine();
+	}
+	
+	private boolean containsDigit(String userInput){
+		return userInput.matches("[0-9]+");
 	}
 
 }
