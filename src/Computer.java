@@ -33,7 +33,7 @@ public class Computer implements IPlayer {
         String[] possibleStates = Brain.getPossibleStates(currentState.getRows());
         for (String stateKey : possibleStates) {
             State possibleState = Brain.getState(stateKey);
-            if (possibleState.getAverage() > newState.getAverage()){
+            if (possibleState.getAverage() >= newState.getAverage()){
                 newState = possibleState;
             }
         }
