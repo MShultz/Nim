@@ -8,7 +8,7 @@ public class State {
 	public State() {
 		key = "-";
 		rows = new int[]{DEFAULT_VALUE, DEFAULT_VALUE, DEFAULT_VALUE};
-		average = DEFAULT_VALUE;
+		average = Double.MIN_VALUE;
 	}
 
 	public State(int stackOne, int stackTwo, int stackThree) {

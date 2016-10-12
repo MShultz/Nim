@@ -1,13 +1,7 @@
 import java.util.Scanner;
 
-public class Console implements IView {
-	
+public class Console implements IView {	
 	private Scanner input = new Scanner(System.in);
-
-//	public void displayState(State currentState) {
-//		currentState.toString();
-//	}
-
 	@Override
 	public void displayMessage(String message) {
 		System.out.println(message);
@@ -19,7 +13,7 @@ public class Console implements IView {
 		int uChoice = -1;
 		while (!valid) {
 			displayMessage("Please input your choice.");
-			String userChoice = input.nextLine();
+			String userChoice = enterString();
 			if (userChoice.matches("[0-9]+")) {
 				uChoice = Integer.parseInt(userChoice);
 				valid = (uChoice >= lowerBound && uChoice <= upperBound);

@@ -2,20 +2,19 @@
  * Created by Greymoon on 9/28/2016.
  */
 public class Human implements IPlayer {
-    private static int playerCount = 0;
+	private static int playerCount = 0;
 	private String name;
 	private Game game;
 	private IView view;
-    private int id;
+	private int id;
 
-    public Human(IView view)
-    {
-        ++playerCount;
-        this.view = view;
-        view.displayMessage("Enter player " + playerCount + " name.");
-        name = view.enterString();
-        id = playerCount;
-    }
+	public Human(IView view) {
+		++playerCount;
+		this.view = view;
+		view.displayMessage("Enter player " + playerCount + " name.");
+		name = view.enterString();
+		id = playerCount;
+	}
 
 	@Override
 	public void setPlayerName(String name) {
@@ -30,12 +29,11 @@ public class Human implements IPlayer {
 	@Override
 	public void takeTurn() {
 		State currentState = game.getCurrentState();
-		
+
 		view.displayMessage(currentState.toString());
-		
-		
+
 		int rowIndex = getRow();
-		int rowValue = currentState.getRow(rowIndex-1);
+		int rowValue = currentState.getRow(rowIndex - 1);
 		int subtractValue = getAmountFromRow(rowIndex, rowValue);
 		int newRowValue = rowValue - subtractValue;
 		State newState = generateNextState(currentState, rowIndex, newRowValue);
@@ -48,22 +46,23 @@ public class Human implements IPlayer {
 		return view.chooseOption(Game.FIRST_ROW, Game.FINAL_ROW);
 	}
 
-	private int getAmountFromRow(int rowIndex, int rowValue){
+	private int getAmountFromRow(int rowIndex, int rowValue) {
 		view.displayMessage("How many do you want to take from row " + rowIndex + " ?");
 		return view.chooseOption(1, rowValue);
 	}
+
 	private State generateNextState(State currentState, int rowIndex, int newRowValue) {
-		State newState = null;
+		State newState = new State();
 		switch (rowIndex) {
-			case 1:
-				newState = new State(newRowValue, currentState.getRow(1), currentState.getRow(2));
-				break;
-			case 2:
-				newState = new State(currentState.getRow(0), newRowValue, currentState.getRow(2));
-				break;
-			case 3:
-				newState = new State(currentState.getRow(0), currentState.getRow(1), newRowValue);
-				break;
+		case 1:
+			newState = new State(newRowValue, currentState.getRow(1), currentState.getRow(2));
+			break;
+		case 2:
+			newState = new State(currentState.getRow(0), newRowValue, currentState.getRow(2));
+			break;
+		case 3:
+			newState = new State(currentState.getRow(0), currentState.getRow(1), newRowValue);
+			break;
 		}
 		return newState;
 	}
@@ -78,8 +77,8 @@ public class Human implements IPlayer {
 		this.view = view;
 	}
 
-    @Override
-    public int getId() {
-        return id;
-    }
+	@Override
+	public int getId() {
+		return id;
+	}
 }
