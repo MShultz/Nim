@@ -28,13 +28,12 @@ public class Computer implements IPlayer {
     @Override
     public void takeTurn() {
         State currentState = game.getCurrentState();
-
         State newState = new State();
-        String[] possibleStates = Brain.getPossibleStates(currentState.getRows());
-        for (String stateKey : possibleStates) {
-            State possibleState = Brain.getState(stateKey);
-            if (possibleState.getAverage() >= newState.getAverage()){
-                newState = possibleState;
+        String[] allPossibleStates = Brain.getPossibleStates(currentState.getRows());
+        for (String stateKey : allPossibleStates) {
+            State currentPossibleState = Brain.getState(stateKey);
+            if (currentPossibleState.getAverage() >= newState.getAverage()){
+                newState = currentPossibleState;
             }
         }
         if (!newState.equals(new State()))
