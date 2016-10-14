@@ -28,13 +28,14 @@ public class Game {
 	}
 
 	public boolean checkGameOver() {
-		if (currentState.getKey().equals(GAME_OVER_STATE.getKey())) {
+		boolean gameIsOver = false;
+		if (currentState.equals(GAME_OVER_STATE)) {
 			State[] states = new State[previousStates.size()];
 			Brain.assignGameAverages(previousStates.toArray(states));
 			currentPlayer.lose();
-			return true;
+			gameIsOver = true;
 		}
-		return false;
+		return gameIsOver;
 	}
 
 	public IPlayer getPlayer(int index) {

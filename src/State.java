@@ -55,8 +55,6 @@ public class State {
 		if (getClass() != obj.getClass())
 			return false;
 		State other = (State) obj;
-		if (Double.doubleToLongBits(average) != Double.doubleToLongBits(other.average))
-			return false;
 		if (key == null) {
 			if (other.key != null)
 				return false;
@@ -76,7 +74,6 @@ public class State {
 			}
 			currentStack += "\n";
 		}
-		
 		return currentStack;
 	}
 }
