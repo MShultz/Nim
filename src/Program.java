@@ -21,20 +21,16 @@ public class Program {
 			view.displayMessage(MAIN_MENU_OPTIONS);
 			int userChoice = view.chooseOption(0, NUMBER_OF_MAIN_MENU_OPTIONS);
 			MenuOptionEnum programAction = MenuOptionEnum.values()[userChoice];
-			if (programAction == MenuOptionEnum.EXIT)
-				inMenu = false;
+			if (programAction == MenuOptionEnum.EXIT) inMenu = false;
 			else {
-				IPlayer playerOne = (programAction == MenuOptionEnum.COMPUTER_VS_COMPUTER) ? new Computer(view)
-						: new Human(view);
-				IPlayer playerTwo = (programAction == MenuOptionEnum.PLAYER_VS_PLAYER) ? new Human(view)
-						: new Computer(view);
-
+				int totalGames = 1;
 				if (programAction == MenuOptionEnum.COMPUTER_VS_COMPUTER) {
 					view.displayMessage("How many games would you like to run?");
-					for (int i = view.chooseOption(0, MAX_NUMBER_OF_GAMES); i > 0; --i)
-						engine.run(new Game(new Computer(view), new Computer(view)));
-				} else
-					engine.run(new Game(playerOne, playerTwo));
+					totalGames = view.chooseOption(0, MAX_NUMBER_OF_GAMES);
+				}
+				for (int gameIteration = 0; gameIteration < totalGames; ++gameIteration) {
+					engine.run(programAction.makeGameWithView(view));
+				}
 			}
 		}
 		view.displayMessage("Thanks for playing.");

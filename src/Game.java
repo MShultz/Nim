@@ -12,6 +12,13 @@ public class Game {
 	private IPlayer currentPlayer;
 	private State currentState;
 
+	public Game() {
+		players[0] = null;
+		players[1] = null;
+		currentState = GAME_OVER_STATE;
+		currentPlayer = players[0];
+	}
+
 	public Game(IPlayer player1, IPlayer player2) {
 		players[0] = player1;
 		players[1] = player2;
