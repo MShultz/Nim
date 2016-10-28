@@ -21,6 +21,8 @@ public class Console implements IView {
 			if (!valid)
 				displayMessage("That is an invalid input.");
 		}
+		int i = Integer.parseInt("1");
+
 		return uChoice;
 	}
 	
